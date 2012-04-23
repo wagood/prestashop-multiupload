@@ -1,4 +1,4 @@
-<!-- BOF Plupload -->
+
 <!-- Load Queue widget CSS -->		
 <style type="text/css">@import url({$module_url}js/jquery.plupload.queue/css/jquery.plupload.queue.css);</style>		
 
@@ -118,5 +118,3 @@ function attachCallbacks(uploader) {
 }
 {/literal}
 </script>
-		
-
