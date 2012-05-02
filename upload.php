@@ -21,7 +21,9 @@ if (isset($_FILES['file'])and sizeof($_FILES['file'])>0 )
  	
 	$_FILES['image_product'] = $_FILES['file'];
 	
-	$product = new Product($_POST['id_product']);
+	$id_product = intval($_POST['id_product']);
+	
+	$product = new Product($id_product);
 	
 		   
 	if (!isset($product->id) || ($info = $tabObj->addProductImage($product))!='') {
