@@ -67,7 +67,7 @@ class Multiupload extends Module
 			'module_path' => $this->module_Path,
 			'obj_id' => $obj->id,
 			'PS_IMG_DIR' => _PS_IMG_DIR_,
-			'maxImageSize' => (Configuration::get('PS_LIMIT_UPLOAD_IMAGE_VALUE') * 1000),	
+			'maxImageSize' => round(Configuration::get('PS_PRODUCT_PICTURE_MAX_SIZE') / 1000 , 0),	
 			'languages' => $languages,
 			'i18n_file' => $i18n_file,	
 			)
