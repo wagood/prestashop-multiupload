@@ -12,7 +12,7 @@ class Multiupload extends Module
 	public function __construct()
  	{
  	 	$this->name = 'multiupload';
- 	 	$this->version = '0.1';
+ 	 	$this->version = '0.1.1';
 		$this->author = 'Wagood';
  	 	$this->tab = 'administration';
 		$this->need_instance = 0;
@@ -47,9 +47,6 @@ class Multiupload extends Module
 		//Validate::isLoadedObject($obj);
 		if (!isset($obj->id)) 
 			return;
-			
-		
-		
 			
 		$languages = Language::getLanguages(false);
 
@@ -91,5 +88,20 @@ class Multiupload extends Module
 			self::$moduleURL = $protocol.$_SERVER['HTTP_HOST'].$endURL;			
 	}
 
+	public function getContent()
+	{
+		$output = '';
+		$output .= '<fieldset><legend><img src="'.$this->module_Path.'logo.gif" alt="'.$this->displayName.'" title="'.$this->displayName.'" />'.$this->displayName.'</legend>';
+		$output .= '<p>'.$this->description.'</p>';
+		$output .= '<fieldset>
+			<p>'.$this->l('You can contribute with a donation if this free module is usefull for you. Click on the link and support! Thank you!').'</p>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="NGFU7U7PYEKYL">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form></fieldset>';
+		return $output; 				
+	}
 }
 ?>
